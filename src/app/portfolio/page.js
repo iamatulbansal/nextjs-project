@@ -11,11 +11,11 @@ const Page = () => {
           <span className={style.title}>illustrations</span>
         </Link>
         {/* item-2 */}
-        <Link href='/portfolio/website' className={style.item}>
+        <Link href='/portfolio/websites' className={style.item}>
           <span className={style.title}>websites</span>
         </Link>
         {/* item-3 */}
-        <Link href='/portfolio/application' className={style.item}>
+        <Link href='/portfolio/applications' className={style.item}>
           <span className={style.title}>applications</span>
         </Link>
       </div>
