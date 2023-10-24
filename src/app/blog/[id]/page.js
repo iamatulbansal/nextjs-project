@@ -1,17 +1,29 @@
 import React from "react";
 import style from "./page.module.css";
 import Image from "next/image";
-const Page = () => {
+
+async function getData(id) {
+  let response = await fetch(
+    "https://jsonplaceholder.typicode.com/posts/" + id,
+    {
+      cache: "no-store",
+    }
+  );
+  if (!response.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return response.json();
+}
+
+const Page = async ({ params }) => {
+  const data = await getData(params.id);
   return (
     <div className={style.container}>
       <div className={style.top}>
         <div className={style.info}>
-          <h1 className={style.title}>Creative Images</h1>
+          <h1 className={style.title}>{data.title}</h1>
           <p className={style.desc}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia,
-            autem nesciunt? Exercitationem sunt neque praesentium et delectus
-            cumque animi assumenda dignissimos commodi recusandae esse doloribus
-            soluta voluptatum dolore, sed quibusdam.
+           {data.body}
           </p>
           <div className={style.author}>
             <Image
