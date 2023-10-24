@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Hero from "public/hero.png";
 import style from "./page.module.css";
-import Link from "next/link";
+import Button from "@/components/button/Button";
 export default function Home() {
   return (
     <div className={style.container}>
@@ -14,9 +14,7 @@ export default function Home() {
           Turning your Idea into Reality. We bring together the teams from the
           global tech industry.
         </p>
-        <Link href='/portfolio'>
-          <button className={style.button}>See Our Works</button>
-        </Link>
+        <Button url='/portfolio' text='See Our Works' />
       </div>
       <div className={style.item}>
         <Image src={Hero} alt='hero-img' className={style.img} />

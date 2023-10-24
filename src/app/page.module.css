@@ -27,11 +27,3 @@
   -webkit-text-fill-color: transparent;
 }
 
-.button{
-  cursor: pointer;
-  padding: 20px;
-  border-radius: 5px;
-  border: none;
-  background-color: #53c28b;
-  width: max-content;
-}
