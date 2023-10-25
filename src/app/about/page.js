@@ -2,6 +2,10 @@ import Button from "@/components/button/Button";
 import React from "react";
 import Image from "next/image";
 import style from "./page.module.css";
+
+
+
+
 const Page = () => {
   return (
     <div className={style.container}>

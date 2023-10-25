@@ -2,7 +2,7 @@ import React from "react";
 import style from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
-
+import { Metadata } from "next";
 async function getData() {
   let response = await fetch("http://localhost:3000/api/posts", {
     cache: "no-store",
@@ -13,13 +13,25 @@ async function getData() {
   return response.json();
 }
 
+
+//Static metadata
+export const metadata = {
+  title: "Blog",
+  description: "This is description for Blog page",
+};
+
+
 const Page = async () => {
   const data = await getData();
- 
+
   return (
     <div className={style.mainContainer}>
       {data.map((item) => (
-        <Link key={item._id} href={`/blog/${item._id}`} className={style.container}>
+        <Link
+          key={item._id}
+          href={`/blog/${item._id}`}
+          className={style.container}
+        >
           <div className={style.imageContainer}>
             <Image
               src={item.img}
