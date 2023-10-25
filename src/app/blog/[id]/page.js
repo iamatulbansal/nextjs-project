@@ -21,7 +21,6 @@ export async function generateMetadata({ params }) {
 }
 
 const Page = async ({ params }) => {
-  console.log("Params", params);
   const data = await getData(params.id);
   return (
     <div className={style.container}>

@@ -1,33 +1,20 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import style from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
-
-async function getData() {
-  const res = await fetch('http://localhost:3000/api/posts')
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
- 
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
-  }
- 
-  return res.json()
-}
- 
-//Static metadata
-export const metadata = {
-  title: "Blog",
-  description: "This is description for Blog page",
-};
-
-
-const Page = async () => {
-  const data = await getData();
-  console.log(data)
-
+const Page = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    function getData() {
+      fetch("http://localhost:3000/api/posts")
+        .then((res) => res.json())
+        .then((result) => setData(result))
+        .catch((error) => console.log(error));
+    }
+    getData();
+  }, []);
   return (
     <div className={style.mainContainer}>
       {data?.map((item) => (
