@@ -10,7 +10,7 @@ const Page = () => {
   return (
     <div className={style.container}>
       <div className={style.imgContainer}>
-        <Image src='https://images.pexels.com/photos/3194521/pexels-photo-3194521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' fill={true}  className={style.img}/>
+        <Image src='https://images.pexels.com/photos/3194521/pexels-photo-3194521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' fill={true}  className={style.img} alt=""/>
         <div className={style.imgText}>
           <h1 className={style.imgTitle}>Digital Storytellers</h1>
           <h2 className={style.imgDesc}>
