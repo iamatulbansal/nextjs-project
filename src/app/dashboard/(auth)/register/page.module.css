@@ -14,11 +14,11 @@
   flex-direction: column;
   gap: 20px;
 }
-.input {
+.input{
   padding: 20px;
   background-color: transparent;
   border: 2px solid #bbb;
-  color: #bbb;
+  color:#bbb;
   border-radius: 5px;
   font-size: 20px;
   font-weight: bold;
@@ -32,16 +32,4 @@
   border-radius: 5px;
   color: #eee;
   font-weight: bold;
-}
-.link {
-  background: none;
-  border: none;
-  outline: none;
-  color: #bbb;
-  font-weight: bold;
-  font-size: 15px;
-  cursor: pointer;
-}
-.link:hover {
-  color: #53c28b;
 }
