@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import useSWR from "swr";
 import { useRouter } from "next/navigation";
-const Page = () => {
+const Dashboard = () => {
   const session = useSession();
   const router = useRouter();
   // const [data, setData] = useState([]);
@@ -27,14 +27,14 @@ const Page = () => {
   // console.log(data);
   //Instead of this useEffect we can use SWR client-side data fetching useSwr hooks come from next.js swr library
 
-  // const fetcher = (...args) => fetch(...args).then((res) => res.json());
-  // const { data, error, isLoading } = useSWR(
-  //   "https://jsonplaceholder.typicode.com/posts",
-  //   fetcher
-  // );
-  // console.log(data);
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const { data, error, isLoading } = useSWR(
+    `/api/posts?username=${session?.data?.user?.name}`,
+    fetcher
+  );
+  console.log(data);
   /////////Google auth/////////////////
-  console.log(session);
+  // console.log(session);
   if (session.status === "loading") {
     return <p>Loading...</p>;
   }
@@ -43,9 +43,9 @@ const Page = () => {
   }
 
   if (session.status === "authenticated") {
+ 
     return <div>Dashboard</div>;
   }
-  //////////////////////////
 };
 
-export default Page;
+export default Dashboard;

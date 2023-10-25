@@ -17,7 +17,7 @@ const Login = () => {
     return router?.push("/dashboard");
   }
 
-  function handleLogin(e) {
+  async function handleLogin(e) {
     e.preventDefault();
     const email = e.target[0].value;
     const password = e.target[1].value;
