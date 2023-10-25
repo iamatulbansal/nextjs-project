@@ -30,7 +30,7 @@ const Login = () => {
           <input
             type='email'
             placeholder='Email'
-            defaultValue={"atulbansal9@gmail.com"}
+            defaultValue={"username@example.com"}
             required
             className={style.input}
           />

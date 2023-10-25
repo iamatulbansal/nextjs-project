@@ -43,13 +43,13 @@ const Register = () => {
             type='text'
             placeholder='Username'
             required
-            defaultValue={"Atul Bansal"}
+            defaultValue={"username"}
             className={style.input}
           />
           <input
             type='email'
             placeholder='Email'
-            defaultValue={"atulbansal9@gmail.com"}
+            defaultValue={"username@example.com"}
             required
             className={style.input}
           />

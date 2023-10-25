@@ -64,12 +64,23 @@ const Dashboard = () => {
           username: session.data.user.name,
         }),
       });
-      mutate();//we use this for mute data our page not refresh again and again
-      e.target.reset()
+      mutate(); //we use this for mute data our page not refresh again and again
+      e.target.reset();
     } catch (err) {
       console.log(err);
     }
   };
+
+  async function handlePostDelete(id) {
+    try {
+      await fetch("/api/posts/" + id, {
+        method: "DELETE",
+      });
+      mutate(); //we use this for mute data our page not refresh again and again
+    } catch (err) {
+      console.log(err);
+    }
+  }
   if (session.status === "authenticated") {
     return (
       <div className={style.container}>
@@ -87,7 +98,12 @@ const Dashboard = () => {
                     />
                   </div>
                   <h2 className={style.postTitle}>{post.title}</h2>
-                  <span className={style.delete}>X</span>
+                  <span
+                    className={style.delete}
+                    onClick={() => handlePostDelete(post._id)}
+                  >
+                    X
+                  </span>
                 </div>
               ))}
         </div>
