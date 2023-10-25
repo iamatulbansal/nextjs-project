@@ -3,10 +3,19 @@ import React, { useState } from "react";
 import style from "./page.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const Register = () => {
   const router = useRouter();
   const [error, setError] = useState(false);
+  const session = useSession();
+  if (session.status === "loading") {
+    return <p>Loading...</p>;
+  }
+  if (session.status === "authenticated") {
+    return router?.push("/dashboard");
+  }
+
   const handleRegister = async (e) => {
     e.preventDefault();
     const name = e.target[0].value;
@@ -21,7 +30,6 @@ const Register = () => {
       });
       response.status === 201 &&
         router.push("/dashboard/login?success=Account has been created");
-    
     } catch (err) {
       setError(true);
     }

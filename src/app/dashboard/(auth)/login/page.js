@@ -3,6 +3,7 @@ import { signIn, useSession } from "next-auth/react";
 import React, { useState } from "react";
 import style from "./page.module.css";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Login = () => {
   const [error, setError] = useState(false);
@@ -48,6 +49,9 @@ const Login = () => {
         <button onClick={() => signIn("google")} className={style.link}>
           Login with Google
         </button>
+        <Link href='/dashboard/register' className={style.link}>
+          Register with new account
+        </Link>
       </div>
     </div>
   );
