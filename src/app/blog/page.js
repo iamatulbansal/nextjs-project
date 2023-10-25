@@ -8,7 +8,7 @@ const Page = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     function getData() {
-      fetch("http://localhost:3000/api/posts", { cache: "no-store" })
+      fetch("/api/posts", { cache: "no-store" })
         .then((res) => res.json())
         .then((result) => setData(result))
         .catch((error) => console.log(error));
