@@ -5,12 +5,10 @@ const postSchema = new Schema(
   {
     title: {
       type: String,
-     
       required: true,
     },
     desc: {
       type: String,
-     
       required: true,
     },
     img: {
