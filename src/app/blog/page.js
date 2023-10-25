@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 async function getData() {
-  let response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+  let response = await fetch("http://localhost:3000/api/posts", {
     cache: "no-store",
   });
   if (!response.ok) {
@@ -15,13 +15,14 @@ async function getData() {
 
 const Page = async () => {
   const data = await getData();
+ 
   return (
     <div className={style.mainContainer}>
       {data.map((item) => (
-        <Link href={`/blog/${item.id}`} className={style.container}>
+        <Link key={item._id} href={`/blog/${item._id}`} className={style.container}>
           <div className={style.imageContainer}>
             <Image
-              src='https://images.pexels.com/photos/2103127/pexels-photo-2103127.jpeg'
+              src={item.img}
               alt=''
               width={400}
               height={250}
@@ -30,7 +31,7 @@ const Page = async () => {
           </div>
           <div className={style.content}>
             <h1 className={style.title}>{item.title}</h1>
-            <p className={style.desc}>{item.body}</p>
+            <p className={style.desc}>{item.desc}</p>
           </div>
         </Link>
       ))}
